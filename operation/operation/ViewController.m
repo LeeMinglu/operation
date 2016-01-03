@@ -29,6 +29,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)pause_resume:(id)sender {
+    
+    if (self.queue.operationCount == 0) {
+        NSLog(@"没有操作！！");
+        return;
+    }
+    
+    self.queue.suspended = !self.queue.suspended;
+    
+    if (self.queue.isSuspended) {
+        NSLog(@"暂停");
+    }else {
+        NSLog(@"继续操作");
+    }
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 //    [self opDemo01];
